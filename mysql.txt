@@ -1,0 +1,55 @@
+系统管理
+连接MySQL
+格式: mysql -h 主机地址 -u用户名 -p用户密码
+例 1:连接到本机上的 MySQL。
+hadoop@ubuntu:~$ mysql -uroot -pmysql;
+
+例 2:连接到远程主机上的 MYSQL。
+hadoop@ubuntu:~$ mysql -h 127.0.0.1 -uroot -pmysql;
+
+修改新密码
+在终端输入：mysql -u用户名 -p密码，回车进入Mysql。
+> use mysql;
+> update user set password=PASSWORD('新密码') where user='用户名';
+> flush privileges; #更新权限
+> quit; #退出
+
+增加新用户
+格式:grant select on 数据库.* to 用户名@登录主机 identified by '密码'
+举例:
+例 1:增加一个用户 test1 密码为 abc,让他可以在任何主机上登录,并对所有数据库有
+查询、插入、修改、删除的权限。首先用以 root 用户连入 MySQL,然后键入以下命令:
+mysql>grant select,insert,update,delete on *.* to root@localhost identified by 'mysql';
+或者
+grant all privileges on *.* to root@localhost identified by 'mysql';
+然后刷新权限设置。
+flush privileges;
+
+例 2:如果你不想 root 有密码操作数据库“mydb”里的数据表,可以再打一个命令将密码消掉。
+grant select,insert,update,delete on mydb.* to root@localhost identified by '';
+
+删除用户
+hadoop@ubuntu:~$ mysql -u用户名 -p密码
+mysql>delete from user where user='用户名' and host='localhost';
+mysql>flush privileges;
+//删除用户的数据库
+mysql>drop database dbname;
+
+数据库操作
+显示所有的数据库
+mysql> show databases;(注意:最后有个 s)
+
+创建数据库
+mysql> create database test;
+
+连接数据库
+mysql> use test;
+
+查看当前使用的数据库
+mysql> select database();
+
+当前数据库包含的表信息
+mysql> show tables; (注意:最后有个 s)
+
+删除数据库
+mysql> drop database test;
