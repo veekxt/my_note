@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+colorscheme evening
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -10,6 +11,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'racer-rust/vim-racer'
+Plugin 'rust-lang/rust.vim'
+Plugin 'kana/vim-smartinput'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -62,10 +67,10 @@ set expandtab                  "将tab替换为相应数量空格
 set smartindent
 set mouse=a				"鼠标
 
-au BufRead *.php map <buffer> <F5> :w<CR>:!/usr/bin/env php % <CR> "一键运行
+"au BufRead *.php map <buffer> <F5> :w<CR>:!/usr/bin/env php % <CR> "一键运行
 map <F6> :!ctags -R .<CR><CR> :TlistUpdate<CR> "更新list
 map <C-S-> :!ctags -R .<CR><CR> :TlistUpdate<CR> "更新list
-set hlsearch "搜索高亮
+"set hlsearch "搜索高亮
 
 let Tlist_Auto_Open = 1 
 
