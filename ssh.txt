@@ -13,3 +13,7 @@ scp file root@45.78.60.77:/tmp
 端口转发
 
 iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 808
+
+nfs挂载
+
+mount -t nfs [-o nolock] <地址>:<目录> <挂载点>
