@@ -1,14 +1,14 @@
 建立一个端口转发
 
-ssh -D7070 -p22 -N -v root@45.78.60.77
+ssh -D7070 -p22 -N -v root@23.83.249.53
 
 连接远程机器
 
-ssh -l root 45.78.60.77 -p 22
+ssh -l root 23.83.249.53 -p 22
 
 上传文件，下载调换两个参数
 
-scp file root@45.78.60.77:/tmp
+scp file root@23.83.249.53:/tmp
 
 端口转发
 
