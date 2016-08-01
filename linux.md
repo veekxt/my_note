@@ -5,4 +5,5 @@ find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 fi
 常用date
 
 \# 2011-12-08 11:09
+
 date +%G-%m-%d %H-%M
