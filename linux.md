@@ -11,3 +11,7 @@ date "+%G-%m-%d %H-%M"
 \# 2011-12-08 11:09:13
 
 date "+%G-%m-%d %X"
+
+生成系统tags
+
+ctags -I __THROW --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --fields=+S  -R -f ~/.vim/systags /opt/hisi-linux/x86-arm/arm-hisiv300-linux/target/usr/include
