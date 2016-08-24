@@ -15,3 +15,7 @@ date "+%G-%m-%d %X"
 生成系统tags
 
 ctags -I __THROW --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c-kinds=+p --fields=+S  -R -f ~/.vim/systags /opt/hisi-linux/x86-arm/arm-hisiv300-linux/target/usr/include
+
+ubuntu 查找文件所在包
+
+apt-file search xxxx.so.1
