@@ -1,6 +1,7 @@
 重复文件检测
-
+```
 find -not -empty -type f -printf "%s\n" | sort -rn | uniq -d | xargs -I{} -n1 find -type f -size {}c -print0 | xargs -0 md5sum | sort | uniq -w32 --all-repeated=separate
+```
 
 常用date
 ```
@@ -27,4 +28,8 @@ sudo add-apt-repository ppa:yannubuntu/boot-repair && sudo apt-get update
 sudo apt-get install -y boot-repair
 
 sudo boot-repair
+```
+查看gcc预定义宏
+```
+gcc -E -dM - < /dev/null
 ```
