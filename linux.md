@@ -33,3 +33,7 @@ sudo boot-repair
 ```
 gcc -E -dM - < /dev/null
 ```
+svn删除未跟踪文件
+```
+svn st | grep '^?' | awk '{print $2}' | xargs rm -rf
+```
