@@ -1,0 +1,71 @@
+# /etc/profile: system-wide .profile file for the Bourne shell (sh(1))
+# and Bourne compatible shells (bash(1), ksh(1), ash(1), ...).
+
+# The default umask is now handled by pam_umask.
+# See pam_umask(8) and /etc/login.defs.
+
+
+# Mon Nov 23 22:56:53 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+export PATH="/opt/hisi-linux/x86-arm/gcc-3.4.3-uClibc-0.9.28/usr/bin:$PATH" 
+# 
+export PATH="/opt/hisi-linux/x86-arm/gcc-3.4.3-uClibc-0.9.28/bin:$PATH" 
+
+# Mon Nov 23 23:03:25 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+export PATH="/opt/hisi-linux/x86-arm/arm-hisiv100-linux/target/bin:$PATH" 
+# 
+
+
+# Mon Nov 23 23:22:43 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+export PATH="/opt/hisi-linux/x86-arm/arm-hisiv200-linux/target/bin:$PATH" 
+# 
+
+
+# Mon Nov 23 23:42:37 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+# 
+
+
+# Mon Nov 23 23:45:53 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+# 
+
+
+# Mon Nov 23 23:52:58 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+export PATH="/opt/hisi-linux-nptl/arm-hisiv100-linux/target/bin:$PATH" 
+#####      dm365
+export PATH="/opt/arm-2009q1/bin:$PATH"
+
+
+###########   dm6446
+export PATH="/opt/mv_pro_4.0.1/montavista/pro/devkit/arm/v5t_le/bin:$PATH"
+
+
+######################    hi3516a
+# Wed Nov 25 22:02:20 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+# 
+# Wed Nov 25 22:05:45 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+# 
+
+
+# Wed Nov 25 22:28:52 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+# 
+
+
+# Mon Dec  7 02:04:09 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+export PATH="/opt/hisi-linux/x86-arm/arm-hisiv300-linux/target/bin:$PATH" 
+# 
+
+
+# Mon Dec  7 02:08:52 PST 2015
+# Hisilicon Linux, Cross-Toolchain PATH
+export PATH="/opt/hisi-linux/x86-arm/arm-hisiv400-linux/target/bin:$PATH" 
+# 
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib"
