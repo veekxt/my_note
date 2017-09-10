@@ -1,0 +1,6 @@
+## mysql on archlinux
+
+```
+pip3 install mysqlclient
+pacman -S mysql-python
+```
