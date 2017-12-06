@@ -1,55 +1,55 @@
-ÏµÍ³¹ÜÀí
-Á¬½ÓMySQL
-¸ñÊ½: mysql -h Ö÷»úµØÖ· -uÓÃ»§Ãû -pÓÃ»§ÃÜÂë
-Àı 1:Á¬½Óµ½±¾»úÉÏµÄ MySQL¡£
+ç³»ç»Ÿç®¡ç†
+è¿æ¥MySQL
+æ ¼å¼: mysql -h ä¸»æœºåœ°å€ -uç”¨æˆ·å -pç”¨æˆ·å¯†ç 
+ä¾‹ 1:è¿æ¥åˆ°æœ¬æœºä¸Šçš„ MySQLã€‚
 hadoop@ubuntu:~$ mysql -uroot -pmysql;
 
-Àı 2:Á¬½Óµ½Ô¶³ÌÖ÷»úÉÏµÄ MYSQL¡£
+ä¾‹ 2:è¿æ¥åˆ°è¿œç¨‹ä¸»æœºä¸Šçš„ MYSQLã€‚
 hadoop@ubuntu:~$ mysql -h 127.0.0.1 -uroot -pmysql;
 
-ĞŞ¸ÄĞÂÃÜÂë
-ÔÚÖÕ¶ËÊäÈë£ºmysql -uÓÃ»§Ãû -pÃÜÂë£¬»Ø³µ½øÈëMysql¡£
+ä¿®æ”¹æ–°å¯†ç 
+åœ¨ç»ˆç«¯è¾“å…¥ï¼šmysql -uç”¨æˆ·å -på¯†ç ï¼Œå›è½¦è¿›å…¥Mysqlã€‚
 > use mysql;
-> update user set password=PASSWORD('ĞÂÃÜÂë') where user='ÓÃ»§Ãû';
-> flush privileges; #¸üĞÂÈ¨ÏŞ
-> quit; #ÍË³ö
+> update user set password=PASSWORD('æ–°å¯†ç ') where user='ç”¨æˆ·å';
+> flush privileges; #æ›´æ–°æƒé™
+> quit; #é€€å‡º
 
-Ôö¼ÓĞÂÓÃ»§
-¸ñÊ½:grant select on Êı¾İ¿â.* to ÓÃ»§Ãû@µÇÂ¼Ö÷»ú identified by 'ÃÜÂë'
-¾ÙÀı:
-Àı 1:Ôö¼ÓÒ»¸öÓÃ»§ test1 ÃÜÂëÎª abc,ÈÃËû¿ÉÒÔÔÚÈÎºÎÖ÷»úÉÏµÇÂ¼,²¢¶ÔËùÓĞÊı¾İ¿âÓĞ
-²éÑ¯¡¢²åÈë¡¢ĞŞ¸Ä¡¢É¾³ıµÄÈ¨ÏŞ¡£Ê×ÏÈÓÃÒÔ root ÓÃ»§Á¬Èë MySQL,È»ºó¼üÈëÒÔÏÂÃüÁî:
+å¢åŠ æ–°ç”¨æˆ·
+æ ¼å¼:grant select on æ•°æ®åº“.* to ç”¨æˆ·å@ç™»å½•ä¸»æœº identified by 'å¯†ç '
+ä¸¾ä¾‹:
+ä¾‹ 1:å¢åŠ ä¸€ä¸ªç”¨æˆ· test1 å¯†ç ä¸º abc,è®©ä»–å¯ä»¥åœ¨ä»»ä½•ä¸»æœºä¸Šç™»å½•,å¹¶å¯¹æ‰€æœ‰æ•°æ®åº“æœ‰
+æŸ¥è¯¢ã€æ’å…¥ã€ä¿®æ”¹ã€åˆ é™¤çš„æƒé™ã€‚é¦–å…ˆç”¨ä»¥ root ç”¨æˆ·è¿å…¥ MySQL,ç„¶åé”®å…¥ä»¥ä¸‹å‘½ä»¤:
 mysql>grant select,insert,update,delete on *.* to root@localhost identified by 'mysql';
-»òÕß
+æˆ–è€…
 grant all privileges on *.* to root@localhost identified by 'mysql';
-È»ºóË¢ĞÂÈ¨ÏŞÉèÖÃ¡£
+ç„¶ååˆ·æ–°æƒé™è®¾ç½®ã€‚
 flush privileges;
 
-Àı 2:Èç¹ûÄã²»Ïë root ÓĞÃÜÂë²Ù×÷Êı¾İ¿â¡°mydb¡±ÀïµÄÊı¾İ±í,¿ÉÒÔÔÙ´òÒ»¸öÃüÁî½«ÃÜÂëÏûµô¡£
+ä¾‹ 2:å¦‚æœä½ ä¸æƒ³ root æœ‰å¯†ç æ“ä½œæ•°æ®åº“â€œmydbâ€é‡Œçš„æ•°æ®è¡¨,å¯ä»¥å†æ‰“ä¸€ä¸ªå‘½ä»¤å°†å¯†ç æ¶ˆæ‰ã€‚
 grant select,insert,update,delete on mydb.* to root@localhost identified by '';
 
-É¾³ıÓÃ»§
-hadoop@ubuntu:~$ mysql -uÓÃ»§Ãû -pÃÜÂë
-mysql>delete from user where user='ÓÃ»§Ãû' and host='localhost';
+åˆ é™¤ç”¨æˆ·
+hadoop@ubuntu:~$ mysql -uç”¨æˆ·å -på¯†ç 
+mysql>delete from user where user='ç”¨æˆ·å' and host='localhost';
 mysql>flush privileges;
-//É¾³ıÓÃ»§µÄÊı¾İ¿â
+//åˆ é™¤ç”¨æˆ·çš„æ•°æ®åº“
 mysql>drop database dbname;
 
-Êı¾İ¿â²Ù×÷
-ÏÔÊ¾ËùÓĞµÄÊı¾İ¿â
-mysql> show databases;(×¢Òâ:×îºóÓĞ¸ö s)
+æ•°æ®åº“æ“ä½œ
+æ˜¾ç¤ºæ‰€æœ‰çš„æ•°æ®åº“
+mysql> show databases;(æ³¨æ„:æœ€åæœ‰ä¸ª s)
 
-´´½¨Êı¾İ¿â
+åˆ›å»ºæ•°æ®åº“
 mysql> create database test;
 
-Á¬½ÓÊı¾İ¿â
+è¿æ¥æ•°æ®åº“
 mysql> use test;
 
-²é¿´µ±Ç°Ê¹ÓÃµÄÊı¾İ¿â
+æŸ¥çœ‹å½“å‰ä½¿ç”¨çš„æ•°æ®åº“
 mysql> select database();
 
-µ±Ç°Êı¾İ¿â°üº¬µÄ±íĞÅÏ¢
-mysql> show tables; (×¢Òâ:×îºóÓĞ¸ö s)
+å½“å‰æ•°æ®åº“åŒ…å«çš„è¡¨ä¿¡æ¯
+mysql> show tables; (æ³¨æ„:æœ€åæœ‰ä¸ª s)
 
-É¾³ıÊı¾İ¿â
+åˆ é™¤æ•°æ®åº“
 mysql> drop database test;
