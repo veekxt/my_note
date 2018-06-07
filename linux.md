@@ -37,3 +37,7 @@ svn删除未跟踪文件
 ```
 svn st | grep '^?' | awk '{print $2}' | xargs rm -rf
 ```
+pip升级所有包
+```
+pip freeze --local | grep -v '^-e' | cut -d = -f 1  | xargs -n1 pip install -U
+```
