@@ -3,3 +3,8 @@ ffmpeg -i sound.mp3 -ss 00:01:23 -t 00:01:40 -acodec copy output_mp3.mp3
 
 从as.flv提取mp3,320k
 ffmpeg -i as.flv -vn -ar 44100 -ac 2 -ab 320k -f mp3 sound.mp3
+
+m4a to mp3
+
+ffmpeg -i infile.m4a -codec:v copy -codec:a libmp3lame -q:a 2 out.mp3";
+
