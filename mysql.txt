@@ -53,3 +53,6 @@ mysql> show tables; (注意:最后有个 s)
 
 删除数据库
 mysql> drop database test;
+
+sqlacodegen：使用sql生成sqlalchemy模型类
+sqlacodegen --tables article --outfile data_article.py mysql+pymysql://root:loroot@localhost:3306/my_site?charset=utf8
