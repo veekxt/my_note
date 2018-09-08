@@ -73,6 +73,10 @@ apt install python3-pip
 pip3 install pip3 install Flask Flask-Bootstrap Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark
 apt-get install python3-mysqldb
 
+if windows:
+go to http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient
+download mysqlclient-*
+
 mkdir /veekxt
 cd /veekxt
 git clone git@github.com:veekxt/my_site.git
