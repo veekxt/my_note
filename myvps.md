@@ -70,7 +70,7 @@ systemctl restart tomcat8
 
 ```
 apt install python3-pip
-pip3 install pip3 install Flask Flask-Bootstrap Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark
+pip3 install Flask Flask-Bootstrap Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark gunicorn
 apt-get install python3-mysqldb
 
 if windows:
