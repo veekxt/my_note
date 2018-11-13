@@ -13,6 +13,7 @@
 apt update;apt upgrade
 apt install vim git curl wget zsh htop tree
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 git config --global user.name "veekxt"
 git config --global user.email "veekxt@gmail.com"
 ```
@@ -150,6 +151,7 @@ systemctl enable v2ray
 
 ## TLS
 ```
+
 https://lolico.moe/tutorial/acme-le-wc.html
 
 curl https://get.acme.sh | sh
@@ -157,8 +159,8 @@ curl https://get.acme.sh | sh
 获取阿里云API
 https://ak-console.aliyun.com/#/accesskey
 
-export Ali_Key="======"
-export Ali_Secret="==============="
+export Ali_Key=""
+export Ali_Secret=""
 
 申请证书
 ~/.acme.sh/acme.sh --issue --dns dns_ali -d veekxt.com -d '*.veekxt.com'
