@@ -10,6 +10,7 @@
 
 ### 基本工具&配置
 ```
+wget https://raw.githubusercontent.com/veekxt/my_note/master/.vimrc -O .vimrc
 apt update;apt upgrade
 apt install vim git curl wget zsh htop tree
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -71,7 +72,7 @@ systemctl restart tomcat8
 
 ```
 apt install python3-pip
-pip3 install Flask Bootstrap-Flask Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark gunicorn
+pip3 install Flask Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark gunicorn
 apt-get install python3-mysqldb
 
 if windows:
