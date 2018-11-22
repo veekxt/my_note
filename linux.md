@@ -43,5 +43,5 @@ pip freeze --local | grep -v '^-e' | cut -d = -f 1  | xargs -n1 pip install -U
 ```
 clone all my reps
 ```
-curl -s https://api.github.com/users/veekxt/repos | grep \"clone_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 proxychains git clone
+curl -s https://api.github.com/users/veekxt/repos | grep \"ssh_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 proxychains git clone
 ```
