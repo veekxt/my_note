@@ -45,3 +45,7 @@ clone all my reps
 ```
 curl -s https://api.github.com/users/veekxt/repos | grep \"ssh_url\" | awk '{print $2}' | sed -e 's/"//g' -e 's/,//g' | xargs -n1 proxychains git clone
 ```
+换行符（win -> linux）转换(递归)
+```
+find . -type f -print0 | xargs -0 dos2unix
+```
