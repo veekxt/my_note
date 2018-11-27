@@ -49,3 +49,9 @@ curl -s https://api.github.com/users/veekxt/repos | grep \"ssh_url\" | awk '{pri
 ```
 find . -type f -print0 | xargs -0 dos2unix
 ```
+disable ssh hot key
+```
+StrictHostKeyChecking no
+UserKnownHostsFile /dev/null
+LogLevel QUIET
+```
