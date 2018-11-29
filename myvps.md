@@ -52,6 +52,8 @@ update user set plugin='mysql_native_password';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 flush privileges;
 vim /etc/mysql/mysql.conf.d/mysqld.cnf #注释 bind-address, 添加 lower_case_table_names = 1
+performance_schema=OFF #大幅降低内存占用
+
 systemctl restart mysql
 
 backup
