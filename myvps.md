@@ -12,7 +12,7 @@
 ```
 wget https://raw.githubusercontent.com/veekxt/my_note/master/.vimrc -O .vimrc
 apt update;apt upgrade
-apt install vim git curl wget zsh htop tree
+apt install vim git curl wget zsh htop tree aria2 haveged
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 git config --global user.name "veekxt"
