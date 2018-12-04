@@ -10,7 +10,7 @@
 
 ### 基本工具&配置
 ```
-wget https://raw.githubusercontent.com/veekxt/my_note/master/.vimrc -O .vimrc
+wget https://raw.githubusercontent.com/veekxt/util_note/master/.vimrc -O ~/.vimrc
 apt update;apt upgrade
 apt install vim git curl wget zsh htop tree aria2 haveged
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -185,6 +185,7 @@ vim /etc/tomcat8/server.xml
                         protocolHeader="x-forwarded-proto" />
      到<HOST>
 
+# useless if use https to config
 nextcloud:
 vim /var/www/nextcloud/config/config.php
 add:
