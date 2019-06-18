@@ -74,10 +74,10 @@ systemctl restart tomcat8
 
 ```
 apt install python3-pip
-pip3 install Flask Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark gunicorn
+pip3 install Flask Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark gunicorn mysqlclient
 apt-get install python3-mysqldb
 
-if windows:
+if windows(maybe):
 go to http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient
 download mysqlclient-*
 
