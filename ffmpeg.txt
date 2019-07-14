@@ -10,5 +10,10 @@ ffmpeg -i infile.m4a -codec:v copy -codec:a libmp3lame -q:a 2 out.mp3"
 
 mp4 to mp3
 
+ffmpeg -i video.mp4 -b:a 320K -vn music.mp3
+
+递归将wav转为mp3, 删除所有wav
+for i in `find . -type f -name '*.wav'`; do ffmpeg -hide_banner -i "$i"  -vn -ar 44100 -ac 2 -b:a 320k "${i/.wav/.mp3}"; done
+for i in `find . -type f -name '*.wav'`; do rm "$i"; done
 
 

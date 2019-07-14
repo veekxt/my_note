@@ -63,3 +63,13 @@ creat ap
 ```
 create_ap wlp3s0 wlp3s0 MyAccessPoint 44442222 --freq-band 2.4
 ```
+7zip
+```
+7zr a -r -mx=4 folder.zip folder 
+```
+统计文件(夹)数量
+```
+find ./ | wc -l
+find ./ -type f | wc -l
+find ./ -type d | wc -l
+```
