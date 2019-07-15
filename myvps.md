@@ -2,17 +2,16 @@
 
 总体上，我需要配置：
 - mysql
-- web: /HfuuShop
+- web: /hfuu_shop
 - web: /
 - web: /nextcloud
 - web: TLS
-- v2ray
 
 ### 基本工具&配置
 ```
 wget https://raw.githubusercontent.com/veekxt/util_note/master/.vimrc -O ~/.vimrc
 apt update;apt upgrade
-apt install vim git curl wget zsh htop tree aria2 haveged
+apt install vim git curl wget zsh htop tree aria2 haveged nginx
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -sf /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 git config --global user.name "veekxt"
@@ -22,6 +21,9 @@ git config --global user.email "veekxt@gmail.com"
 ### SSH
 ```
 端口配置：
+
+允许root登录
+PermitRootLogin yes
 
 vim /etc/ssh/sshd_config
 systemctl restart ssh
@@ -43,7 +45,7 @@ ssh-keygen -t rsa -b 4096 -C "veekxt@gmail.com"
 
 ### MySQL
 ```
-apt install mysql-server
+apt install mariadb-server
 mysql -u root
 use mysql;
 update user set authentication_string=password('some_string_password') where user='root';
@@ -63,42 +65,46 @@ mysqldump -uroot -p --databases my_site >/tmp/md.txt
 
 ### tomcat
 ```
-apt install tomcat8
-apt install tomcat8-admin
-cd /etc/tomcat8/
-vim tomcat-users.xml #添加<role rolename="manager-gui"/><user username="tomcat" password="some-string" roles="manager-gui"/>
+apt install tomcat9 tomcat9-admin
+ 
+
+vim /etc/tomcat9/tomcat-users.xml #添加<role rolename="manager-gui"/><user username="tomcat" password="some-string" roles="manager-gui"/>
 systemctl restart tomcat8
 ```
 
 ### flask
 
 ```
-apt install python3-pip
-pip3 install Flask Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark gunicorn
-apt-get install python3-mysqldb
+apt install python3-pip python3-mysqldb
+pip3 install commonmark Flask Flask-Login Flask-Mail Flask-Script Flask-SQLAlchemy Flask-WTF commonmark gunicorn mysqlclient
 
-if windows:
-go to http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient
-download mysqlclient-*
 
 mkdir /veekxt
 cd /veekxt
 git clone git@github.com:veekxt/my_site.git
 
-# 添加到/etc/rc.local
+vim /usr/lib/systemd/system/gunicorn.service
+写入
 
-export VSECRET_KEY="some-other-string"
-export MAIL_USERNAME="veekxt@gmail.com"
-export MAIL_PASSWORD="your-mail-pass"
-export VDATABASE="mysql://root:rootpass@localhost:3306/my_site"
+[Unit]
+Description=gunicorn daemon
+After=network.target
+[Service]
+PIDFile=/run/gunicorn/pid
+User=root
+RuntimeDirectory=gunicorn
+WorkingDirectory=/veekxt/my_site
+ExecStart=env VDATABASE='mysql://root:pass@localhost:3306/my_site' gunicorn -b0.0.0.0:9016 --user=root main:app
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s TERM $MAINPID
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
 
-cd /veekxt/my_site/
-gunicorn -b0.0.0.0:9016 --user=root main:app -D
 
 # 运行
-
-systemctl enable rc-local
-reboot
+systemctl enable gunicorn
+systemctl start gunicorn
 
 ```
 
@@ -106,6 +112,7 @@ reboot
 ```
 apt install apache2 libapache2-mod-php php-gd php-json php-mysql php-curl php-mbstring php-intl php-imagick php-xml php-zip
 cd /var/www
+go to https://nextcloud.com/install/#instructions-server
 wget https://download.nextcloud.com/server/releases/nextcloud-13.0.5.tar.bz2
 tar -xjf nextcloud-13.0.5.tar.bz2
 vim /etc/apache2/sites-available/nextcloud.conf
@@ -146,12 +153,6 @@ service apache2 restart
 
 ```
 
-## v2ray
-```
-bash <(curl -L -s https://install.direct/go.sh)
-systemctl enable v2ray
-```
-
 ## TLS
 ```
 
@@ -172,8 +173,8 @@ ll ~/.acme.sh/veekxt.com
 
 copy nginx.conf to new vps
 
-tomcat :
-vim /etc/tomcat8/server.xml
+tomcat (do not config this, just use http):
+vim /etc/tomcat9/server.xml
 
       <Connector port="44300" protocol="HTTP/1.1"
                  connectionTimeout="20000"
@@ -197,4 +198,10 @@ add:
 
 ```
 
-##
+check:
+
+https://veekxt.com  
+http://veekxt.com/hfuu_shop  
+https://veekxt.com/nextcloud  
+
+
