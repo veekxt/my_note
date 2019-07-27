@@ -73,3 +73,13 @@ find ./ | wc -l
 find ./ -type f | wc -l
 find ./ -type d | wc -l
 ```
+vbox network
+```
+# /etc/network/interfaces
+
+auto eth1
+iface eth1 inet static
+# Host-Only网卡的ip是192.168.56.1，设置在同一个网络段192.168.51.*
+address 192.168.56.2
+netmask 255.255.255.0
+```
