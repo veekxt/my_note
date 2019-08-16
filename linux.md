@@ -73,6 +73,16 @@ find ./ | wc -l
 find ./ -type f | wc -l
 find ./ -type d | wc -l
 ```
+统计代码行数
+```
+find demo/ -name "*.js" |wc -l
+```
+递归统计代码行数
+```
+find demo/ -name "*.js" |xargs cat|wc -l 或 wc -l `find ./ -name "*.js"`|tail -n1
+From https://blog.csdn.net/yhhwatl/article/details/52623879
+```
+
 vbox network
 ```
 # /etc/network/interfaces
