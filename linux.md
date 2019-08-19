@@ -93,3 +93,7 @@ iface eth1 inet static
 address 192.168.56.2
 netmask 255.255.255.0
 ```
+python 2to3
+```
+$ 2to3 --output-dir=python3-version/mycode -W -n python2-version/mycode
+```
